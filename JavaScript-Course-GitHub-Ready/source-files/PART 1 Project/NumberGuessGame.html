@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let randomNum = Math.floor(Math.random() * 100) + 1;
+console.log(randomNum);
+
+let guess = false;
+
+for (let i = 1; i <= 5; i++) {
+
+    let guessNum = Number(prompt("Attempt " + i + ": Guess the number"));
+
+    if (isNaN(guessNum)) {
+        console.log("Invalid input");
+        continue;
+    }
+
+    if (Math.abs(guessNum - randomNum) <= 5 && guessNum !== randomNum) {
+        console.log("Very close 🔥");
+    }
+
+    if (guessNum > randomNum) {
+        console.log("Too High");
+    } 
+    else if (guessNum < randomNum) {
+        console.log("Too Low");
+    } 
+    else {
+        console.log("Correct Number 🎉");
+        guess = true;
+        break;
+    }
+}
+
+if (!guess) {
+    console.log("You lose the game. The number was:", randomNum);
+}
+    </script>
+</body>
+</html>

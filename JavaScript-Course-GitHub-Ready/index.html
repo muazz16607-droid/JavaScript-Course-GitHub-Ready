@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Muaz | JavaScript Portfolio</title>
+  <meta name="description" content="Modern portfolio and JavaScript course projects by Muhammad Muaz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+  <div class="bg-grid"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#home">Muaz<span>.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">Menu</button>
+    <nav class="site-nav" id="siteNav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#course">Course Files</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero" id="home">
+      <div class="hero-content reveal">
+        <p class="eyebrow">Frontend Developer Portfolio</p>
+        <h1>Muhammad Muaz</h1>
+        <p class="hero-subtitle">I build <span id="roleText">Frontend Interfaces</span></p>
+        <p class="hero-text">
+          Welcome to my upgraded portfolio. I organized my JavaScript course content,
+          improved project presentation, and added smooth animations for a modern feel.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="source-files/PART%201%20Project/Frontend%20Projects/images/porfolio/portfolio.html" target="_blank" rel="noopener noreferrer">Open Old Portfolio</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap reveal">
+        <img src="assets/images/profile.jpeg" alt="Muhammad Muaz profile photo" class="hero-image">
+      </div>
+    </section>
+
+    <section class="section stats">
+      <div class="stat-card reveal">
+        <h3 data-counter="25">0</h3>
+        <p>Practice Files</p>
+      </div>
+      <div class="stat-card reveal">
+        <h3 data-counter="8">0</h3>
+        <p>Featured Projects</p>
+      </div>
+      <div class="stat-card reveal">
+        <h3 data-counter="3">0</h3>
+        <p>Certificates</p>
+      </div>
+      <div class="stat-card reveal">
+        <h3 data-counter="100">0</h3>
+        <p>Learning Momentum</p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">About Me</p>
+        <h2>Building clean and interactive web experiences</h2>
+      </div>
+      <div class="about-grid">
+        <article class="about-card reveal">
+          <h3>Skills</h3>
+          <ul>
+            <li>HTML5 and Semantic Layout</li>
+            <li>Modern CSS and Responsive Design</li>
+            <li>JavaScript DOM and Logic Building</li>
+            <li>UI improvements with animation</li>
+          </ul>
+        </article>
+        <article class="about-card reveal">
+          <h3>Current Focus</h3>
+          <p>
+            I am improving real project structure, animation quality, and JavaScript problem-solving.
+            This new portfolio is organized for better GitHub presentation and easier project review.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Featured Work</p>
+        <h2>Projects from my JavaScript course journey</h2>
+      </div>
+
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="practice">Practice</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal" data-tags="frontend javascript">
+          <img src="assets/images/car.png" alt="Car selling website preview">
+          <div class="project-body">
+            <h3>Car Selling Website</h3>
+            <p>Responsive UI project with multiple pages and clean styling.</p>
+            <a href="source-files/clean-projects/car-selling-website/index.html" target="_blank" rel="noopener noreferrer">Open Project</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="javascript practice">
+          <img src="assets/images/store.jpeg" alt="General store website preview">
+          <div class="project-body">
+            <h3>General Store Website</h3>
+            <p>Simple ecommerce style interface with product and login flow practice.</p>
+            <a href="source-files/PART%201%20Project/Frontend%20Projects/images/Index.html" target="_blank" rel="noopener noreferrer">Open Project</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="javascript practice">
+          <div class="project-placeholder">DOM</div>
+          <div class="project-body">
+            <h3>DOM Practice Lab</h3>
+            <p>Exercises for class list, modal, and dynamic element interactions.</p>
+            <a href="source-files/PART%201%20Project/Lec%208%20DOM/index.html" target="_blank" rel="noopener noreferrer">Open Project</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="javascript practice">
+          <div class="project-placeholder">GAME</div>
+          <div class="project-body">
+            <h3>Number Guess Game</h3>
+            <p>Interactive JavaScript game for logic and user input handling practice.</p>
+            <a href="source-files/PART%201%20Project/NumberGuessGame.html" target="_blank" rel="noopener noreferrer">Open Project</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="frontend practice">
+          <div class="project-placeholder">TASK</div>
+          <div class="project-body">
+            <h3>Task Practice 1</h3>
+            <p>Foundational JavaScript task practice from course exercises.</p>
+            <a href="source-files/task1.html" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="frontend practice">
+          <div class="project-placeholder">TASK</div>
+          <div class="project-body">
+            <h3>Task Practice 2</h3>
+            <p>Continuation of JavaScript logic and array/object learning tasks.</p>
+            <a href="source-files/task2.html" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="frontend practice">
+          <div class="project-placeholder">TASK</div>
+          <div class="project-body">
+            <h3>Task Practice 3</h3>
+            <p>Practice set focused on conditionals, loops, and function basics.</p>
+            <a href="source-files/task3.html" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-tags="frontend practice">
+          <div class="project-placeholder">TASK</div>
+          <div class="project-body">
+            <h3>Task Practice 4</h3>
+            <p>Additional exercises to strengthen JavaScript fundamentals.</p>
+            <a href="source-files/task4.html" target="_blank" rel="noopener noreferrer">Open File</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="course">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Course Organization</p>
+        <h2>All JavaScript course content is packed in one GitHub-ready folder</h2>
+      </div>
+      <div class="course-grid">
+        <article class="course-card reveal">
+          <h3>Main Learning Bundle</h3>
+          <p>Your complete old files are available inside one folder for easy upload.</p>
+          <a href="source-files/PART%201%20Project/" target="_blank" rel="noopener noreferrer">Open PART 1 Project</a>
+        </article>
+        <article class="course-card reveal">
+          <h3>Original Root Tasks</h3>
+          <p>Top level task files are preserved in <code>source-files</code>.</p>
+          <a href="source-files/" target="_blank" rel="noopener noreferrer">Open Source Files</a>
+        </article>
+        <article class="course-card reveal">
+          <h3>Backup Archive</h3>
+          <p>Your existing zip backup file is also included for safety.</p>
+          <a href="source-files/car-selling-website.zip" target="_blank" rel="noopener noreferrer">Open Zip File</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Lets connect for frontend projects and freelance work</h2>
+      </div>
+      <div class="contact-card reveal">
+        <p>Want me to build a website or update a design?</p>
+        <a class="btn btn-primary" href="mailto:hello@example.com">Email Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Muhammad Muaz. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

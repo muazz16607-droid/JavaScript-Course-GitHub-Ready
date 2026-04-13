@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.SGS - Home</title>
+<style>
+/* ------------------- BODY ------------------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding-top: 130px; /* space for fixed navs */
+}
+
+/* ------------------- NAVBAR ------------------- */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #222;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#nav.scrolled {
+  padding: 5px 20px;
+  background: #111;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo img {
+  height: 50px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+#nav.scrolled .logo img {
+  height: 35px;
+}
+
+.sub-nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sub-nav a:hover {
+  color: #00bcd4;
+}
+
+/* ------------------- CATEGORY NAV ------------------- */
+#category-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: white;
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  z-index: 999;
+  transition: 0.3s;
+}
+
+#category-nav.scrolled {
+  top: 60px;
+}
+
+.category-links a {
+  text-decoration: none;
+  padding: 10px 15px;
+  background: #00bcd4;
+  color: white;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.category-links a:hover {
+  background: #0097a7;
+}
+
+.category-links a.active {
+  background: #ff9800;
+}
+
+/* ------------------- BANNER ------------------- */
+#banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* ------------------- PRODUCTS GRID ------------------- */
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product button {
+  background: #00bcd4;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product button:hover {
+  background: #0097a7;
+}
+
+/* ------------------- CART POPUP ------------------- */
+#cart-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+#cart-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+  transform: scale(0.7);
+  transition: 0.3s;
+}
+
+#cart-popup.active .cart-box {
+  transform: scale(1);
+}
+
+.cart-box input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.cart-box button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  background: #00bcd4;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close-btn {
+  background: red;
+}
+</style>
+</head>
+<body>
+
+<!-- ------------------- HEADER ------------------- -->
+<header>
+  <nav id="nav">
+    <div class="logo">
+      <img src="WhatsApp Image 2026-04-02 at 7.09.02 PM.jpeg" alt="Logo">
+    </div>
+    <div class="name">Rao Sadam General Store</div>
+    <div class="sub-nav">
+      <a href="Index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#" id="nav-cart">Cart</a>
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ------------------- CATEGORY NAV ------------------- -->
+<div id="category-nav">
+  <div class="category-links"><a href="#" data-category="grocery">Grocery</a></div>
+  <div class="category-links"><a href="#" data-category="personal">Personal Care</a></div>
+  <div class="category-links"><a href="#" data-category="household">Household Items</a></div>
+</div>
+
+<!-- ------------------- BANNER ------------------- -->
+<div id="banner">
+  <img src="images/banner.jpg" alt="Banner">
+</div>
+
+<!-- ------------------- PRODUCTS ------------------- -->
+<div id="products"></div>
+
+<!-- ------------------- CART POPUP ------------------- -->
+<div id="cart-popup">
+  <div class="cart-box">
+    <h3>Add to Cart</h3>
+    <p id="cart-product-name"></p>
+    <input type="number" id="cart-qty" value="1" min="1">
+    <button onclick="confirmAddToCart()">Confirm</button>
+    <button class="close-btn" onclick="closeCart()">Cancel</button>
+  </div>
+</div>
+
+<script>
+// ------------------- SCROLL ANIMATION -------------------
+const nav = document.getElementById("nav");
+const categoryNav = document.getElementById("category-nav");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+    categoryNav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+    categoryNav.classList.remove("scrolled");
+  }
+});
+
+// ------------------- PRODUCTS DATA -------------------
+const productsData = {
+  grocery: [
+    {name: "Rice", price: "200 PKR", image: "images/rice.jpg", description: "Basmati rice"},
+    {name: "Wheat", price: "150 PKR", image: "images/wheat.jpg", description: "Whole wheat"}
+  ],
+  personal: [
+    {name: "Shampoo", price: "300 PKR", image: "images/shampoo.jpg", description: "Hair care"},
+    {name: "Soap", price: "100 PKR", image: "images/soap.jpg", description: "Skin care"}
+  ],
+  household: [
+    {name: "Detergent", price: "400 PKR", image: "images/detergent.jpg", description: "Cleaning powder"},
+    {name: "Dish Wash", price: "250 PKR", image: "images/dishwash.jpg", description: "Dish cleaner"}
+  ]
+};
+
+// ------------------- CATEGORY CLICK -------------------
+const links = document.querySelectorAll('.category-links a');
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    links.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+    displayProducts(link.dataset.category);
+  });
+});
+
+// ------------------- DISPLAY PRODUCTS -------------------
+function displayProducts(category) {
+  const productsDiv = document.getElementById('products');
+  productsDiv.innerHTML = '';
+  productsData[category].forEach(product => {
+    const productHTML = `
+      <div class="product">
+        <img src="${product.image}">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <p><strong>${product.price}</strong></p>
+        <button onclick="openCart('${product.name}', '${product.price}')">Add to Cart</button>
+      </div>
+    `;
+    productsDiv.innerHTML += productHTML;
+  });
+}
+
+// ------------------- DEFAULT LOAD -------------------
+displayProducts("grocery");
+links[0].classList.add("active");
+
+// ------------------- CART LOGIC -------------------
+let selectedProduct = null;
+
+function openCart(name, price) {
+  selectedProduct = { name, price };
+  document.getElementById("cart-product-name").textContent = `${name} - ${price}`;
+  document.getElementById("cart-qty").value = 1;
+  document.getElementById("cart-popup").classList.add("active");
+}
+
+function closeCart() {
+  document.getElementById("cart-popup").classList.remove("active");
+}
+
+function confirmAddToCart() {
+  const qty = document.getElementById("cart-qty").value;
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const existing = cart.find(item => item.name === selectedProduct.name);
+  if (existing) {
+    existing.quantity = parseInt(existing.quantity) + parseInt(qty);
+  } else {
+    cart.push({ name: selectedProduct.name, price: selectedProduct.price, quantity: qty });
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${selectedProduct.name} added to cart ✅`);
+  closeCart();
+}
+// OPEN CART WHEN NAVBAR CART CLICKED
+const navCart = document.getElementById("nav-cart");
+navCart.addEventListener("click", (e) => {
+  e.preventDefault(); // prevent page jump
+  // Open cart popup with default message if no product selected
+  selectedProduct = { name: "Cart Items", price: "" };
+  document.getElementById("cart-product-name").textContent = "Your Cart Items";
+  document.getElementById("cart-qty").value = 1;
+  document.getElementById("cart-popup").classList.add("active");
+});
+</script>
+
+</body>
+</html>

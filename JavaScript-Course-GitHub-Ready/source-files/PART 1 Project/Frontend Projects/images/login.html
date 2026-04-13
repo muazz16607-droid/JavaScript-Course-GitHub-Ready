@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Register</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #00bcd4, #2196f3);
+}
+
+/* NAVBAR */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #222;
+  color: white;
+}
+
+.logo img {
+  height: 45px;
+  border-radius: 10px;
+}
+
+.sub-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+/* MAIN BOX */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.container {
+  width: 340px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0097a7;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #00bcd4;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav id="nav">
+    <div class="logo">
+      <img src="WhatsApp Image 2026-04-02 at 7.09.02 PM.jpeg">
+    </div>
+    <div>Rao Sadam General Store</div>
+    <div class="sub-nav">
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- LOGIN -->
+    <div id="loginBox">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <button onclick="login()">Login</button>
+      <p class="error" id="loginError"></p>
+      <p class="switch" onclick="showRegister()">New user? Register</p>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerBox" style="display:none;">
+      <h2>Register</h2>
+      <input type="email" id="regEmail" placeholder="Email">
+      <input type="password" id="regPassword" placeholder="Password">
+      
+      <select id="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button onclick="register()">Register</button>
+      <p class="error" id="regError"></p>
+      <p class="switch" onclick="showLogin()">Already have account? Login</p>
+    </div>
+
+  </div>
+</main>
+
+<script>
+
+// SWITCH UI
+function showRegister() {
+  document.getElementById("loginBox").style.display = "none";
+  document.getElementById("registerBox").style.display = "block";
+}
+
+function showLogin() {
+  document.getElementById("registerBox").style.display = "none";
+  document.getElementById("loginBox").style.display = "block";
+}
+
+// GET USERS FROM STORAGE
+function getUsers() {
+  return JSON.parse(localStorage.getItem("users")) || [];
+}
+
+// SAVE USERS
+function saveUsers(users) {
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
+// REGISTER FUNCTION
+function register() {
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPassword").value;
+  const role = document.getElementById("role").value;
+
+  let users = getUsers();
+
+  // CHECK EXISTING USER
+  if (users.find(u => u.email === email)) {
+    document.getElementById("regError").textContent = "User already exists ❌";
+    return;
+  }
+
+  // ADMIN LIMIT (MAX 3)
+  if (role === "admin") {
+    const admins = users.filter(u => u.role === "admin");
+    if (admins.length >= 3) {
+      document.getElementById("regError").textContent = "Only 3 admins allowed ❌";
+      return;
+    }
+  }
+
+  // SAVE USER
+  users.push({ email, password, role });
+  saveUsers(users);
+
+  alert("Registered Successfully ✅");
+  showLogin();
+}
+
+// LOGIN FUNCTION
+function login() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  let users = getUsers();
+
+  const user = users.find(u => u.email === email && u.password === password);
+
+  if (user) {
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    if (user.role === "admin") {
+      alert("Welcome Admin 👑");
+      window.location.href = "admin.html";
+    } else {
+      alert("Login Successful ✅");
+      window.location.href = "index.html";
+    }
+
+  } else {
+    document.getElementById("loginError").textContent = "Invalid credentials ❌";
+  }
+}
+
+</script>
+
+</body>
+</html>

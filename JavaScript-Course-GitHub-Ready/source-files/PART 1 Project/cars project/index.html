@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CarMarket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <h2>CarMarket</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="cars.html">Buy Cars</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Find Your Perfect Car</h1>
+
+  <div class="search-box">
+    <input id="searchBrand" placeholder="Brand">
+    <input id="searchPrice" placeholder="Max Price">
+    <button onclick="searchCars()">Search</button>
+  </div>
+</section>
+
+<!-- Featured Cars -->
+<section class="cars" id="featuredCars"></section>
+
+<script src="script.js"></script>
+</body>
+</html>

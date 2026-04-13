@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Map()
+       // let l=[10,20,30,40]
+        // l.map((value,index)=>{
+        //     console.log(value,index)
+        // })
+        // let newArray=l.map((v,i)=>{
+        //     return v*2
+        // })
+        // console.log(l)
+        // console.log(newArray)
+
+        //  let v=[2,4,8]
+        //  let squareArray=v.map((v)=>v**2)
+        //  console.log(squareArray)
+
+
+        // filter()
+        // let l=[10,12,13,22,16,18,24,32,33,21,45,60]
+        // let newValue= l.filter((value)=> value%3==0)
+        //  console.log(newValue)
+
+
+        //    let user=[
+        //     {
+        //         name:"MUAZ",
+        //         age:19
+        //     },
+        //      {
+        //         name:"MUBashir",
+        //         age:15
+        //     },
+        //      {
+        //         name:"MUAzam",
+        //         age:17
+        //     },
+        //      {
+        //         name:"zaid",
+        //         age:23
+        //     },
+        //      {
+        //         name:"umer",
+        //         age:18
+        //     }
+        // ]
+        // console.log(user)
+        // let newData= user.filter((obj)=>obj.age>=18)
+        // console.log(newData)
+
+        //reduce()
+
+        let l=[10,20,30,40]
+        let total=l.reduce((sum,value)=>sum+value,0)
+         console.log(total)
+
+         // find()
+
+         let user=[
+            {
+                name:"MUAZ",
+                age:19
+            },
+             {
+                name:"MUBashir",
+                age:15
+            },
+             {
+                name:"MUAzam",
+                age:17
+            },
+             {
+                name:"zaid",
+                age:23
+            },
+             {
+                name:"umer",
+                age:18
+            }
+        ]
+        let name=user.forEach((obj,index)=>{
+            console.log(index,obj.name,obj.age)
+        })
+         let findData=user.find((value)=>value.age>=18)
+         console.log(findData)
+
+         let n=[10,9,23,25,16]
+         let firstOdd=n.find((value)=>value%2!=0)
+         console.log(firstOdd)
+
+         //forEach()
+
+
+    </script>
+</body>
+</html>

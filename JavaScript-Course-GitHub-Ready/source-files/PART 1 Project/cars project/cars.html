@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy Cars</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <h2>CarMarket</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="cars.html">Buy Cars</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Filters</h3>
+
+    <label>Max Price</label>
+    <input type="number" id="filterPrice">
+
+    <label>Brand</label>
+    <select id="filterBrand">
+      <option value="">All</option>
+      <option>Toyota</option>
+      <option>Honda</option>
+      <option>Nissan</option>
+    </select>
+
+    <button onclick="applyFilters()">Apply</button>
+  </div>
+
+  <!-- Cars -->
+  <div class="car-list" id="carList"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style{
+            background-color: aqua;
+            color: blueviolet;
+            font-size: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <button class="add">Add class</button>
+    <button class="remove">Remove class</button>
+    <button class="toggle">Toggle class</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+     Expedita voluptatum fugiat obcaecati laborum temporibus enim molestias aspernatur optio.
+     Facere non ducimus nihil? Eaque ad quod accusamus quae at est voluptatum?</p>
+</body>
+<script>
+    let addElement=document.querySelector(".add")
+    let removeElement=document.querySelector(".remove")
+    let toggleElement=document.querySelector(".toggle")
+    let paraElement=document.querySelector("p")
+    addElement.addEventListener("click",()=>{
+        paraElement.classList.add('style')
+
+    })
+    removeElement.addEventListener("click",()=>{
+        paraElement.classList.remove('style')
+
+    })
+    toggleElement.addEventListener("click",()=>{
+        paraElement.classList.toggle('style')
+        
+    })
+     
+
+
+</script>
+</html>

@@ -1,0 +1,113 @@
+#about-us {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-us section {
+  margin-bottom: 20px;
+}
+
+#about-us h1, #about-us h2 {
+  color: #333;
+}
+
+#about-us p {
+  color: #666;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-member {
+  margin: 20px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.values ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.values li {
+  margin-bottom: 10px;
+}
+
+.values i {
+  color: #4CAF50;
+  margin-right: 10px;
+}
+
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.social-media li {
+  margin-right: 10px;
+}
+
+.social-media a {
+  color: #666;
+  font-size: 20px;
+}
+
+.social-media a:hover {
+  color: #333;
+}
+#nav {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+#nav .logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#nav .name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+#nav .sub-nav {
+  margin-right: 20px;
+}
+
+#nav .sub-nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+#nav .sub-nav a:hover {
+  color: #ccc;
+}
+
+

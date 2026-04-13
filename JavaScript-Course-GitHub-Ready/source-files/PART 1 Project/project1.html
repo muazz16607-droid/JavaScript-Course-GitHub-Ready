@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let countinueCalc=true;
+         while(countinueCalc){
+            let num1 = Number(prompt("Enter value1:"));
+            let num2 = Number(prompt("Enter value2:"));
+            let opr = prompt("Enter operator:");
+            let result;
+
+if (opr === "+") {
+    result = num1 + num2;
+} 
+else if (opr === "-") {
+    result = num1 - num2;
+} 
+else if (opr === "*") {
+    result = num1 * num2;
+} 
+else if (opr === "/") {
+    if (num2 === 0) {
+        console.log("Cannot divide by zero");
+    } else {
+        result = num1 / num2;
+    }
+} 
+else if (opr === "%") {
+    result = num1 % num2;
+} 
+else {
+    console.log("Invalid operator");
+}
+if(result!==undefined){
+     console.log("Result:", result);
+}
+
+            let userChoice=prompt("Do you want to countinue Calculation: (yes/no)")
+            if(userChoice.toLowerCase()==="no"){
+                countinueCalc=false;
+            }
+        }
+        
+            
+
+
+    </script>
+</body>
+</html>
